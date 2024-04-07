@@ -10,8 +10,10 @@ public class Dispenser {
     private Medicine[][] matrix;
 
     public Dispenser() {
+        this.dispenser = new Medicine[rows][columns];
 
     }
+
 
     public Dispenser(int rows, int columns) {
         this.rows = rows;
@@ -128,9 +130,38 @@ public class Dispenser {
     }
 
     public void refillMedicine(int amount, int x, int y) {
-
-
         dispenser[x][y].setUnits(dispenser[x][y].getUnits() + amount);
 
     }
+
+    public void refillSpecificMedicine(String nameMedicine, String companyName, int amount) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                Medicine medicine = matrix[i][j];
+                if (medicine != null && medicine.getName().equals(nameMedicine) && medicine.getManufactures().equals(companyName)) {
+                    medicine.setUnits(medicine.getUnits() + amount);
+                }
+            }
+        }
+    }
+
+    public int availableQuantities(String nameMedicine) {
+        int totalQuantitites = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                Medicine medicine = matrix[i][j];
+                if (medicine != null && medicine.getName().equals(nameMedicine)) {
+                    totalQuantitites += medicine.getUnits();
+                }
+
+
+            }
+
+
+        }
+        return totalQuantitites;
+    }
+
+
+
 }

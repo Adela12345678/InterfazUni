@@ -11,6 +11,7 @@ public class Medicine {
         private String indications;
         private String manufactures;
         private int units;
+        private int availableQuantities;
         //initialized
         public Medicine(int id, String name, String indications, String manufactures, int units) {
             this.id=id;
@@ -18,6 +19,7 @@ public class Medicine {
             this.indications = indications;
             this.manufactures = manufactures;
             this.units = units;
+
         }
         //2. Include setter, getters and constructors for each class
         public int getId(){
@@ -41,6 +43,8 @@ public class Medicine {
         public void setUnits(int units){
             this.units = units;
         }
+
+
     public String toString() {
         return "Medicine{" +
                 "name='" + name + '\n' +
