@@ -81,10 +81,11 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-1053195"/>
+              <background color="-16053495"/>
               <editable value="false"/>
               <enabled value="false"/>
-              <foreground color="-1516321"/>
+              <foreground color="-16053495"/>
+              <lineWrap value="true"/>
             </properties>
           </component>
         </children>

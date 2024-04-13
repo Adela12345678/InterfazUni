@@ -18,7 +18,7 @@ public class Dispenser {
     public Dispenser(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
-        this.matrix = new Medicine[rows][columns];
+        this.dispenser = new Medicine[rows][columns];
     }
 
 
@@ -66,7 +66,7 @@ public class Dispenser {
         return medicineCounter;
     }
 
-    private int nMedicine(int columns) {
+   /* private int nMedicine(int columns) {
         // Initialize a counter for medicine
         int medicineCounter = 0;
 
@@ -80,12 +80,14 @@ public class Dispenser {
         return medicineCounter;
     }
 
+    */
+
     //Make a method called findMedicine that, given a medicine name, returns the position that
 //the medicine occupies in the name vector. If it is not there, it will return -1.
     public int findMedicine(String name) {
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.columns; j++) {
-                if (this.matrix[i][j] != null && this.matrix[i][j].getName().equals(name)) {
+                if (this.dispenser[i][j] != null && this.dispenser[i][j].getName().equals(name)) {
                     return i * this.columns + j;
                 }
             }
@@ -114,8 +116,8 @@ public class Dispenser {
     public void refill() {
         int amount = 0;
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i <= 3; i++) {
+            for (int j = 0; j <= 3; j++) {
                 String name = dispenser[i][j].getName();
                 if (name.equals(name)) {
 
@@ -137,19 +139,19 @@ public class Dispenser {
     public void refillSpecificMedicine(String nameMedicine, String companyName, int amount) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                Medicine medicine = matrix[i][j];
+                Medicine medicine = dispenser[i][j];
                 if (medicine != null && medicine.getName().equals(nameMedicine) && medicine.getManufactures().equals(companyName)) {
                     medicine.setUnits(medicine.getUnits() + amount);
                 }
             }
         }
     }
-
+//count the number of every medicine
     public int availableQuantities(String nameMedicine) {
         int totalQuantitites = 0;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                Medicine medicine = matrix[i][j];
+                Medicine medicine = dispenser[i][j];
                 if (medicine != null && medicine.getName().equals(nameMedicine)) {
                     totalQuantitites += medicine.getUnits();
                 }

@@ -10,7 +10,7 @@ public class Pharmacy extends JFrame {
     public Pharmacy(Dispenser[] dispensers) {
         this.dispensers = new Dispenser[4];
         for (int i = 0; i < this.dispensers.length; i++) {
-            this.dispensers[i] = new Dispenser();// Inicializa cada Dispenser
+            this.dispensers[i] = new Dispenser();// Inicializate every Dispenser
         }
     }
 
@@ -70,7 +70,7 @@ public class Pharmacy extends JFrame {
     public int orderMedicicine(String nameMedicine, int amount) {
         int totalAvailable = 0;
         for (Dispenser dispenser : dispensers) {
-            totalAvailable += dispenser.availableQuantities(nameMedicine); // devuelve numero unidades
+            totalAvailable += dispenser.availableQuantities(nameMedicine); // return the cuantity of the medicine
         }
         return 0;
     }
